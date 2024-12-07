@@ -1,0 +1,71 @@
+body{
+    background: black;
+    margin: 0;
+}
+
+#top{
+    position: fixed;
+    background: #EDF6F9;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    height: 200px;
+
+
+}
+
+.menu-btn{
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    color: #575652;
+}
+#menu{
+    display: flex;
+    justify-content: left;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+#main{
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-logo{
+    width: 400;
+    height: 150;
+    margin: 0;
+}
+
+.arrow{
+    color: #83C5BE;
+    font-weight: bold;
+    
+}
+
+/* Style all font awesome icons */
+.fa {
+    padding: 20px;
+    font-size: 120%;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  .fa:hover {
+    opacity: 0.7;
+  }
+
+  .fa-instagram {
+    color: #83C5BE;
+  }
+  
+
+  .fa-whatsapp {
+    color: #83C5BE;
+  }
+
+  #social-media{
+    margin-right: auto;
+    background: red;
+  }
