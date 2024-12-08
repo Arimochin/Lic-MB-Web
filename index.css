@@ -1,119 +1,176 @@
-body{
-    background: black;
-    margin: 0;
+body {
+  background: black;
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
-#top{
-    position: fixed;
-    background: #EDF6F9;
-    width: 100%;
-    margin: 0;
-    display: flex;
-    height: 200px;
+#top {
+  position: fixed;
+  background: #EDF6F9;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  height: 17vh; /* Altura basada en la altura de la ventana */
+  align-items: end;
+  padding: 0 2%; /* Espaciado lateral */
+  z-index: 1000;
+  box-shadow: 1px 3px 15px black;
+}
+/* --------------Buttons------------- */
+.menu-btn {
+  padding: 0.5em 1em;
+  font-size: 1.2rem; /* Unidad relativa */
+  border: none;
+  color: #575652;
+  background: none;
+  cursor: pointer;
+  margin-bottom: 0.3vw;
+}
 
+.enter-btn{
+  background: #ff9100;
+  color: FFDDD2;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1vw;
+}
+
+#menu {
+  display: flex;
+  gap: 1rem; /* Espacio entre botones */
+  flex-wrap: wrap; /* Asegura que se ajusten en pantallas pequeñas */
+  margin-bottom: 0;
 
 }
 
-.menu-btn{
-    padding: 10px 20px;
-    font-size: 20px;
-    border: none;
-    color: #575652;
-}
-#menu{
-    display: flex;
-    justify-content: left;
-    margin-bottom: 0;
-    margin-top: 0;
+.enter-menu{
+  display: flex; 
+  justify-content: space-between; 
+  align-items: end;
+  margin-bottom: 0.5vw;
+  margin-left: 25vw;
 }
 
-#main{
-    display: flex;
-    flex-direction: column;
+#main {
+  display: flex;
+  flex-direction: column;
 }
 
-.brand-logo{
-    width: 400;
-    height: 150;
-    margin: 0;
-    margin-left: 20px;
-    justify-content: left;
+.brand-logo {
+  width: 22vw; /* Escala en relación al ancho de la pantalla */
+  max-width: 300px; /* Limita el tamaño en pantallas grandes */
+  height: 6vw; /* Mantiene la proporción */
+  margin: 0;
 }
 
-.arrow{
-    color: #83C5BE;
-    font-weight: bold;
-    
+.arrow {
+  color: #83C5BE;
+  font-weight: bold;
 }
 
-/* Style all font awesome icons */
+/* Estilo para los íconos de redes sociales */
 .fa {
-    padding: 20px;
-    font-size: 120%;
-    text-align: center;
-    text-decoration: none;
+  padding: 1rem;
+  font-size: 1.5rem; /* Unidad relativa */
+  text-align: center;
+  text-decoration: none;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-instagram,
+.fa-whatsapp {
+  color: #83C5BE;
+}
+
+#social-media {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5vw;
+  gap: 0rem;
+}
+
+#slider {
+  overflow: hidden;
+  margin-top: 15vh; /* Para evitar que se solape con el header */
+  height: 50vh; /* Altura adaptable */
+}
+
+#slider figure {
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  animation: 20s slider infinite;
+}
+
+#slider figure img {
+  float: left;
+  width: 20%; /* Ajusta automáticamente el ancho de las imágenes */
+  height: 100%; /* Escala las imágenes proporcionalmente */
+  object-fit: cover; /* Mantiene el aspecto dentro del contenedor */
+}
+
+@keyframes slider {
+  0% {
+      left: 0;
   }
-  
-  .fa:hover {
-    opacity: 0.7;
+  20% {
+      left: 0;
+  }
+  25% {
+      left: -100%;
+  }
+  45% {
+      left: -100%;
+  }
+  50% {
+      left: -200%;
+  }
+  70% {
+      left: -200%;
+  }
+  75% {
+      left: -300%;
+  }
+  95% {
+      left: -300%;
+  }
+  100% {
+      left: -400%;
+  }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  #top {
+      flex-direction: column; /* Coloca el contenido en columna */
+      height: auto; /* Ajusta dinámicamente la altura */
+      padding: 0.1em;
   }
 
-  .fa-instagram {
-    color: #83C5BE;
-  }
-  
-
-  .fa-whatsapp {
-    color: #83C5BE;
+  .menu-btn {
+      font-size: 0.9rem;
   }
 
-  #social-media{
-    margin-right: auto;
+  #menu {
+      gap: 0.5rem;
+  }
+
+  .brand-logo {
+      width: 30vw;
+      height: 150px;
+      max-width: 200px;
+  }
+
+  .fa {
+      font-size: 1.2rem;
   }
 
   #slider {
-    overflow: hidden;
-    margin-top: 200px;
-    height: 700px;
+      height: 40vh; /* Menor altura en dispositivos pequeños */
   }
-  #slider figure {
-    position: relative;
-    width: 500%;
-    margin: 0;
-    left: 0;
-    animation: 20s slider infinite;
-  }
-  #slider figure img {
-    float: left;
-    width: 20%;
-  }
-  
-  @keyframes slider {
-    0% {
-      left: 0;
-    }
-    20% {
-      left: 0;
-    }
-    25% {
-      left: -100%;
-    }
-    45% {
-      left: -100%;
-    }
-    50% {
-      left: -200%;
-    }
-    70% {
-      left: -200%;
-    }
-    75% {
-      left: -300%;
-    }
-    95% {
-      left: -300%;
-    }
-    100% {
-      left: -400%;
-    }
-  }
+}
