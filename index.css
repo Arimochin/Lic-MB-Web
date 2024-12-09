@@ -10,6 +10,7 @@ body {
   width: 100%;
   margin: 0;
   display: flex;
+  flex-direction: row;
   height: 20vh; /* Altura basada en la altura de la ventana */
   align-items: end;
   padding: 0; /* Espaciado lateral/ chau padding */
@@ -29,7 +30,7 @@ body {
 
 .enter-btn{
   background: #ff9100;
-  color: FFDDD2;
+  color: #FFDDD2;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
@@ -62,7 +63,7 @@ body {
   width: 22vw; /* Escala en relación al ancho de la pantalla */
   max-width: 300px; /* Limita el tamaño en pantallas grandes */
   height: 6vw; /* Mantiene la proporción */
-  margin: 0;
+  margin: 10px 0 0 50px;
 }
 
 .arrow {
@@ -148,7 +149,7 @@ body {
 /* Media Queries */
 @media (max-width: 768px) {
   #top {
-      flex-direction: column; /* Coloca el contenido en columna */
+      /* flex-direction: column; */ /* Coloca el contenido en columna */
       height: auto; /* Ajusta dinámicamente la altura */
       padding: 0.1em;
   }
