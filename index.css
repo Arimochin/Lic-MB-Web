@@ -99,7 +99,7 @@ body {
 #slider {
   overflow: hidden;
   margin-top: 15vh; /* Para evitar que se solape con el header */
-  height: 50vh; /* Altura adaptable */
+  height: 70vh; /* Altura adaptable */
 }
 
 #slider figure {
