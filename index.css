@@ -62,6 +62,7 @@ body {
 .brand-logo {
   width: 22vw; /* Escala en relación al ancho de la pantalla */
   max-width: 300px; /* Limita el tamaño en pantallas grandes */
+  max-height: 140px;
   height: 6vw; /* Mantiene la proporción */
   margin: 10px 0 0 50px;
 }
