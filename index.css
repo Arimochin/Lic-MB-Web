@@ -29,7 +29,7 @@ body {
 
 .enter-btn{
   background: #ff9100;
-  color: FFDDD2;
+  color: #FFDDD2;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
@@ -50,7 +50,7 @@ body {
   justify-content: space-between; 
   align-items: end;
   margin-bottom: 0.5vw;
-  margin-left: 10vw;
+  margin-left: 25vw;
 }
 
 #main {
