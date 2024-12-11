@@ -36,6 +36,14 @@ body {
   padding: 10px 20px;
   font-size: 1vw;
   margin: 2px 4px;
+  transition: background 0.5s;
+}
+
+
+
+
+.enter-btn:hover{
+  background: #ad6200;
 }
 
 #menu {
@@ -62,7 +70,7 @@ body {
 .brand-logo {
   width: 22vw; /* Escala en relación al ancho de la pantalla */
   max-width: 300px; /* Limita el tamaño en pantallas grandes */
-  max-height: 140px;
+  max-height: 170px;
   height: 6vw; /* Mantiene la proporción */
   margin: 10px 0 0 50px;
 }
@@ -146,6 +154,122 @@ body {
       left: -400%;
   }
 }
+
+.q{
+  color: #006D77;
+}
+
+.medium{
+  display: flex;
+  flex-direction: row;
+  margin: 10vh 7vh;
+  background: #cbd1d3;
+  padding: 4vh 0;
+  border-radius: 10px;
+
+}
+
+.mid{
+  background: #006D77;
+  border-radius: 5px;
+  height: 500px;
+  display: flex;
+  margin-left: 0;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.5s;
+}
+
+.mid:hover{
+  background: #004950;
+}
+
+
+
+.fa-address-card-o{
+  color: #EDF6F9;
+  margin-bottom: 3vh;
+}
+
+.text-wrapper{
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: left;
+  align-items: self-start;
+  margin-left: 10vw;
+  gap: 2vh;
+}
+
+#q1{
+  color: #006D77;
+}
+
+#q2{
+  color: #75aba5;
+  font-weight: bold;
+  /* text-shadow: 0px 0px 1px #006D77; */
+}
+
+.footer{
+  background: #006D77;
+  height: calc(15vh + 15vw);
+  max-height: 900px;
+  display: flex;
+}
+
+#light-brand-logo{
+  max-height: 150px;
+  max-width: 300px;
+  margin-left: 5vw;
+}
+
+.map{
+  max-width: 400px; 
+  max-height: 400px;
+  width: calc(10vw + 10vh); 
+  height: calc(10vw + 10vh);
+}
+
+.map-wrap{
+  display: flex;
+  flex-direction: column;
+  margin-left: 25vw;
+  margin-top: 5vh;
+}
+
+.map-wrap-text{
+  display: flex;
+  color: #EDF6F9;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 1vh;
+}
+
+#whatsapp-footer{
+  color: #EDF6F9;
+  padding: 0;
+  margin-left: 0;
+}
+
+.t1{
+  color: #EDF6F9; 
+  margin-bottom: 10px;
+  height: 10px;
+  
+}
+
+.all-text-wrapper{
+  justify-content: left;
+  text-align: left;
+  align-items: left;
+}
+
 
 /* Media Queries */
 @media (max-width: 768px) {
