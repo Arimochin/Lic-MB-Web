@@ -11,9 +11,9 @@ body {
   margin: 0;
   display: flex;
   flex-direction: row;
-  height: 20vh; /* Altura basada en la altura de la ventana */
+  height: 30vh; /* Altura basada en la altura de la ventana */
   align-items: end;
-  padding: 0; /* Espaciado lateral/ chau padding */
+  padding: 1vh 0; /* Espaciado lateral/ chau padding */
   z-index: 1000;
   box-shadow: 1px 3px 15px black;
 }
@@ -46,11 +46,28 @@ body {
   background: #ad6200;
 }
 
+.navbar-nav {
+  display: flex;
+  gap: 1rem; /* Espaciado entre botones */
+  flex-wrap: nowrap; /* Evita que los botones se envuelvan */
+}
+
+.menu-btn {
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  font-size: 1rem; /* Ajusta el tamaño de fuente */
+  padding: 0.5rem 1rem; /* Espaciado interno */
+  background: none;
+  border: none;
+  color: #575652;
+  cursor: pointer;
+}
+
 #menu {
   display: flex;
   gap: 1rem; /* Espacio entre botones */
   flex-wrap: wrap; /* Asegura que se ajusten en pantallas pequeñas */
   margin-bottom: 0;
+  width: 100%;
 
 }
 
@@ -106,7 +123,7 @@ body {
 
 #slider {
   overflow: hidden;
-  margin-top: 15vh; /* Para evitar que se solape con el header */
+  margin-top: 25vh; /* Para evitar que se solape con el header */
   height: 70vh; /* Altura adaptable */
 }
 
