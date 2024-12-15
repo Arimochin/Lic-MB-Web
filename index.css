@@ -287,6 +287,13 @@ body {
   align-items: left;
 }
 
+.cv-body{
+  margin-top: 25vh;
+  height: 30vh;
+  width: 100%;
+  background: red;
+}
+
 
 /* Media Queries */
 @media (max-width: 768px) {
