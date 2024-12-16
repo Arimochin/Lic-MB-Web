@@ -294,6 +294,20 @@ body {
   background: red;
 }
 
+#cv-photo{
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 50%;
+}
+
+.cv-body{
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /* Media Queries */
 @media (max-width: 768px) {
