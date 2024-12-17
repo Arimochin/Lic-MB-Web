@@ -306,6 +306,10 @@ body {
   font-size: 150%;
 }
 
+.cv-head{
+  width: 80%;
+}
+
 #cv-name{
   color: #006D77;
 }
