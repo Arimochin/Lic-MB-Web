@@ -287,27 +287,54 @@ body {
   align-items: left;
 }
 
-.cv-body{
-  margin-top: 25vh;
-  height: 30vh;
-  width: 100%;
-  background: red;
-}
-
 #cv-photo{
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 400px;
+  max-height: 400px;
   border-radius: 50%;
+  size: 180%;
+  border: 10px solid #83C5BE;
+  margin-bottom: 5vh;
 }
 
 .cv-body{
   display:flex;
   flex-direction: column;
-  text-align: center;
   justify-content: center;
   align-items: center;
+  margin-top: 35vh;
+  width: 100%;
+  font-size: 150%;
 }
 
+#cv-name{
+  color: #006D77;
+}
+
+#cv-title{
+  color: #75aba5;
+}
+
+.cv-text-wrapper{
+  margin-top: 3vh;
+  width: 60%;
+  text-align: center;
+  color: #575652;
+}
+
+.cv-job-wrapper{
+  text-align: left;
+  color: #575652;
+}
+
+li::marker {
+  color: #006D77;
+}
+
+.underline{
+  border-bottom: 8px solid #83C5BE;
+  border-radius: 8px;
+  font-weight: bold;
+}
 
 /* Media Queries */
 @media (max-width: 768px) {
