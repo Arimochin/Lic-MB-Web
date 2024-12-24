@@ -10,12 +10,17 @@ body {
   width: 100%;
   margin: 0;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: 30vh; /* Altura basada en la altura de la ventana */
-  align-items: end;
+  align-items: start;
   padding: 1vh 0; /* Espaciado lateral/ chau padding */
   z-index: 1000;
   box-shadow: 1px 3px 15px black;
+}
+
+.d-row {
+  display: flex;
+  flex-direction: row;
 }
 /* --------------Buttons------------- */
 .menu-btn {
@@ -26,6 +31,10 @@ body {
   background: none;
   cursor: pointer;
   margin-bottom: 0.3vw;
+}
+
+#nav-bar-btn-wrapper {
+  margin-top: 50vh;
 }
 
 .enter-btn{
@@ -341,6 +350,8 @@ li::marker {
   border-radius: 8px;
   font-weight: bold;
 }
+
+
 
 /* Media Queries */
 @media (max-width: 768px) {
