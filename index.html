@@ -15,21 +15,28 @@
     <body>
         <div id="main" >
             <header id="top">
-
-                <div class="d-row">
-                    <div class="offcanvas offcanvas-start offcanvas-lg" id="demo">
-                        <div class="offcanvas-header">
-                            <img src="images/brand_Logo.png" class="brand-logo img-fluid">
-                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                    <div>
+                        <img src="images/brand_Logo.png" class="brand-logo img-fluid ">
+                        <button class="btn-primary d-xxl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo" id="nav-bar-btn-wrapped">
+                            <span class="fa fa-bars" id="nav-bar-btn-icon"></span>  
+                        </button>
+                        <div id="menu" class="d-none d-xxl-block">
+                            <a href="CV.html"><button class="menu-btn"> Acerca De Mi <span class="arrow">∨</span></button></a>
+                            <button class="menu-btn"> Cap. De Terapia De Mano <span class="arrow">∨</span> </button>
+                            <button class="menu-btn"> Terapia De Mano <span class="arrow">∨</span> </button>
                         </div>
-                        <div class="offcanvas-body">
-                            <p>Acerca De Mi</p>
-                            <p>Cap. De Terapia De Mano</p>
-                            <p>Terapia De Mano</p>
+                        <div class="offcanvas offcanvas-start offcanvas-lg" id="demo">
+                            <div class="offcanvas-header">
+                                <img src="images/brand_Logo.png" class="brand-logo img-fluid">
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <p>Acerca De Mi</p>
+                                <p>Cap. De Terapia De Mano</p>
+                                <p>Terapia De Mano</p>
+                            </div>
                         </div>
                     </div>
-
-                    <img src="images/brand_Logo.png" class="brand-logo img-fluid ">
                     
                     <div class="enter-menu ">
                         <button class="enter-btn">Ingreso Pacientes</button>
@@ -39,16 +46,7 @@
                         <a href="#" class="fa fa-instagram fa-3x"></a>
                         <a href="#" class="fa fa-whatsapp fa-3x"></a>
                     </div>
-                </div>
-
-                <button class="btn-primary d-xxl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo" id="nav-bar-btn-wrapped">
-                    <span class="fa fa-bars" id="nav-bar-btn-icon"></span>  
-                </button>
-                <div id="menu" class="d-none d-xxl-block">
-                    <a href="CV.html"><button class="menu-btn"> Acerca De Mi <span class="arrow">∨</span></button></a>
-                    <button class="menu-btn"> Cap. De Terapia De Mano <span class="arrow">∨</span> </button>
-                    <button class="menu-btn"> Terapia De Mano <span class="arrow">∨</span> </button>
-                </div>
+                
 
             </header>
             <div id="slider">

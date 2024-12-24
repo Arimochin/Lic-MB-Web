@@ -10,18 +10,16 @@ body {
   width: 100%;
   margin: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   height: 30vh; /* Altura basada en la altura de la ventana */
-  align-items: start;
+  align-items: end;
+  justify-content: start;
   padding: 1vh 0; /* Espaciado lateral/ chau padding */
   z-index: 1000;
   box-shadow: 1px 3px 15px black;
 }
 
-.d-row {
-  display: flex;
-  flex-direction: row;
-}
+
 /* --------------Buttons------------- */
 .menu-btn {
   padding: 0.5em 1em;
@@ -63,7 +61,7 @@ body {
 
 .menu-btn {
   white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-  font-size: 1rem; /* Ajusta el tamaño de fuente */
+  font-size: 1.5rem; /* Ajusta el tamaño de fuente */
   padding: 0.5rem 1rem; /* Espaciado interno */
   background: none;
   border: none;
@@ -71,13 +69,13 @@ body {
   cursor: pointer;
 }
 
-#menu {
+.menu {
   display: flex;
-  gap: 1rem; /* Espacio entre botones */
+  gap: 3rem; /* Espacio entre botones */
   flex-wrap: wrap; /* Asegura que se ajusten en pantallas pequeñas */
   margin-bottom: 0;
   width: 100%;
-
+  
 }
 
 .enter-menu{
@@ -94,11 +92,11 @@ body {
 }
 
 .brand-logo {
-  width: 22vw; /* Escala en relación al ancho de la pantalla */
-  max-width: 300px; /* Limita el tamaño en pantallas grandes */
-  max-height: 170px;
-  height: 6vw; /* Mantiene la proporción */
-  margin: 10px 0 0 50px;
+  width: 25vw; /* Escala en relación al ancho de la pantalla */
+  max-width: 400px; /* Limita el tamaño en pantallas grandes */
+  max-height: 250px;
+  height: 10vh; /* Mantiene la proporción */
+  margin: 25vh 0 4vh 1vw;
 }
 
 .arrow {
@@ -132,7 +130,7 @@ body {
 
 #slider {
   overflow: hidden;
-  margin-top: 25vh; /* Para evitar que se solape con el header */
+  margin-top: 30vh; /* Para evitar que se solape con el header */
   height: 70vh; /* Altura adaptable */
 }
 
