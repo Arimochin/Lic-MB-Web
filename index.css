@@ -21,15 +21,6 @@ body {
 
 
 /* --------------Buttons------------- */
-.menu-btn {
-  padding: 0.5em 1em;
-  font-size: 1.2rem; /* Unidad relativa */
-  border: none;
-  color: #575652;
-  background: none;
-  cursor: pointer;
-  margin-bottom: 0.3vw;
-}
 
 #nav-bar-btn-wrapper {
   margin-top: 50vh;
@@ -59,14 +50,16 @@ body {
   flex-wrap: nowrap; /* Evita que los botones se envuelvan */
 }
 
+
 .menu-btn {
   white-space: nowrap; /* Evita que el texto se divida en varias líneas */
   font-size: 1.5rem; /* Ajusta el tamaño de fuente */
-  padding: 0.5rem 1rem; /* Espaciado interno */
+  padding: 0.5em 1em; /* Espaciado interno */
   background: none;
   border: none;
   color: #575652;
   cursor: pointer;
+  margin-bottom: 0.3vw;
 }
 
 .menu {
@@ -353,10 +346,19 @@ li::marker {
 
 /* Media Queries */
 @media (max-width: 768px) {
+  header { 
+    width: 100%;
+  }
+
   #top {
       /* flex-direction: column; */ /* Coloca el contenido en columna */
-      height: auto; /* Ajusta dinámicamente la altura */
+      /* height: auto; */ /* Ajusta dinámicamente la altura */
       padding: 0.1em;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: flex-start;
   }
 
   .menu-btn {
@@ -369,8 +371,9 @@ li::marker {
 
   .brand-logo {
       width: 60vw;
-      height: 150px;
-      max-width: 200px;
+      margin: 0 0 0 1em;
+      /* height: 150px; */
+      /* max-width: 200px; */
   }
 
   .fa {
@@ -380,5 +383,16 @@ li::marker {
   #slider {
       height: 40vh; /* Menor altura en dispositivos pequeños */
       width: 100%;
+  }
+
+  .medium {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 }
