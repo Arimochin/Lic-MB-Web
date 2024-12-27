@@ -394,11 +394,12 @@ li::marker {
   #top {
       /* flex-direction: column; */ /* Coloca el contenido en columna */
       /* height: auto; */ /* Ajusta dinámicamente la altura */
+      height: 26vh;
       padding: 0.1em;
       width: 100%;
       display: flex;
-      flex-direction: column;
-      justify-content: start;
+      flex-direction: row;
+      justify-content: space-between;
       align-items: flex-start;
   }
 
@@ -421,14 +422,44 @@ li::marker {
       font-size: 1.2rem;
   }
 
+  #nav-bar-btn-wrapped {
+    border: none;
+    background-color: #EDF6F9;
+  }
+
+  #nav-bar-btn-icon {
+    font-size: 1.7rem;
+    color: #004950;
+  }
+
   #slider {
-      height: 40vh; /* Menor altura en dispositivos pequeños */
+      margin-top: 26vh; /* Menor altura en dispositivos pequeños */
       width: 100%;
+      height: auto;
   }
 
   .medium {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin: 2em 1em;
+  }
+
+  .text-wrapper {
+    margin: 0 0.5em 0 0.5em;
+
+  }
+
+  #q1{
+    text-wrap: wrap;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  #q2{
+    text-wrap: wrap;
+    text-align: center;
+    font-size: 1.2rem;
   }
 
   .footer {
