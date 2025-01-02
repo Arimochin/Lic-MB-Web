@@ -462,9 +462,30 @@ li::marker {
     font-size: 1.2rem;
   }
 
+
+  #mid {
+    height: 250px;
+    width: 90%;
+    margin-top: 1em;
+  }
+
   .footer {
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: auto;
+  }
+
+  .map-wrap {
+    margin: 1em 2em;
+  }
+
+  .map-wrap-text {
+    justify-content: left;
+  }
+
+  .map {
+    width: auto;
+    height: 30vh;
   }
 }
