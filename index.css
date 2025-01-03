@@ -437,6 +437,23 @@ li::marker {
     color: #004950;
   }
 
+  #enter-btn-div {
+    margin-top: 3em;
+  }
+
+  .enter-btn {
+    display: block;
+    font-size: 1rem;
+    margin:  1em 0 1em 0;
+    font-weight: 700;
+    width: 50%;
+  }
+
+  .enter-btn-link {
+    text-decoration: none;
+  }
+  
+
   #slider {
       margin-top: 26vh; /* Menor altura en dispositivos pequeños */
       width: 100%;
