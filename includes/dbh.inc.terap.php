@@ -3,8 +3,8 @@
 $host = "localhost";
 $port = "5432";
 $dbname = "lic-MB-DB";
-$user = "tu_usuario";
-$password = "tu_contraseña";
+$user = "terapista";
+$password = "consultorio7484";
 
 // Crear conexión
 $conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");

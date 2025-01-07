@@ -6,11 +6,11 @@ require_once 'dbh.inc.patient.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sanitizar y asignar variables a los datos del formulario
     $dni = filter_var($_POST['DNI'], FILTER_SANITIZE_NUMBER_INT);
-    $firstname = filter_var($_POST['firstname'], FILTER_SANITIZE_STRING);
-    $secondname = filter_var($_POST['secondname'], FILTER_SANITIZE_STRING);
-    $adress = filter_var($_POST['adress'], FILTER_SANITIZE_STRING);
-    $phone_number = filter_var($_POST['phone-number'], FILTER_SANITIZE_STRING);
-    $os = filter_var($_POST['os'], FILTER_SANITIZE_STRING);
+    $firstname = filter_var($_POST['firstname'], FILTER_UNSAFE_RAW);
+    $secondname = filter_var($_POST['secondname'], FILTER_UNSAFE_RAW);
+    $adress = filter_var($_POST['adress'], FILTER_UNSAFE_RAW);
+    $phone_number = filter_var($_POST['phone-number'], FILTER_UNSAFE_RAW);
+    $os = filter_var($_POST['os'], FILTER_UNSAFE_RAW);
 
 
     // Asegurarse de que la conexión esté activa
