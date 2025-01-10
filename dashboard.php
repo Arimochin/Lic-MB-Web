@@ -53,6 +53,25 @@ $result = pg_query($conn,$query);
             <p><?php echo $row['adress']; ?></p>
             <p><?php echo $row['phone']; ?></p>
             <p><?php echo $row['os']; ?></p>
+
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#derMedModal">Ver Derivación Médica</button>
+            <div class="modal" id="derMedModal" tabindex="-1">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <img src="derMed-images/<?php echo htmlspecialchars($row['dev'], ENT_QUOTES, 'UTF-8'); ?>" >
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#autObSModal">Ver Autorización Obra Social</button>
+            <div class="modal" id="autObSModal" tabindex="-1">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <img src="autObS-images/<?php echo htmlspecialchars($row['autor'], ENT_QUOTES, 'UTF-8'); ?>" >
+                    </div>
+                </div>
+            </div>
+
             <!-- Botón para mover a ficha médica -->
             <form action="includes/move_to_ficha.php" method="post" class="mt-2">
                 <input type="hidden" name="dni" value="<?php echo $row['dni']; ?>">
