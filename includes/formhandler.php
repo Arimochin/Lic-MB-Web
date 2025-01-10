@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $dni = filter_var($_POST['DNI'], FILTER_SANITIZE_NUMBER_INT);
     $firstname = filter_var($_POST['firstname'], FILTER_UNSAFE_RAW);
     $secondname = filter_var($_POST['secondname'], FILTER_UNSAFE_RAW);
+    $dateofbirth = $_POST['dateofbirth'];
     $adress = filter_var($_POST['adress'], FILTER_UNSAFE_RAW);
     $phone_number = filter_var($_POST['phone-number'], FILTER_UNSAFE_RAW);
     $os = filter_var($_POST['os'], FILTER_UNSAFE_RAW);
@@ -37,14 +38,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Asegurarse de que la conexión esté activa
     if ($conn) {
         // Preparar la consulta de inserción
-        $query = "INSERT INTO DATOS_PERSONALES (dni, firstname, secondname, adress, phone, os, dev, autor)
-                  VALUES ($1, $2, $3, $4, $5, $6, $7, $8)"; // Asegurarse de tener todos los 8 parámetros
+        $query = "INSERT INTO DATOS_PERSONALES (dni, firstname, secondname, date_of_birth, adress, phone, os, dev, autor)
+                  VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)"; // Asegurarse de tener todos los 8 parámetros
 
         // Ejecutar la consulta con parámetros
         $result = pg_query_params($conn, $query, [
             $dni,
             $firstname,
             $secondname,
+            $dateofbirth,
             $adress,
             $phone_number,
             $os,

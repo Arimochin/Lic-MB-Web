@@ -1,8 +1,16 @@
 <?php
 require_once 'includes/dbh.inc.terap.php';
 $query = "SELECT * FROM DATOS_PERSONALES";
+// Inicializar variables
+$search = '';
+// Procesar búsqueda si se envía el formulario
+if (isset($_GET['search']) && !empty($_GET['search'])) {
+    $search = $_GET['search'];
+    $query .= " WHERE LOWER(firstname) LIKE LOWER('%$search%') 
+                OR LOWER(secondname) LIKE LOWER('%$search%') 
+                OR CAST(dni AS TEXT) LIKE '%$search%'";
+}
 $result = pg_query($conn,$query);
-
 ?>
 
 
@@ -21,11 +29,35 @@ $result = pg_query($conn,$query);
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </head>
     <body>
+    <div class="container mt-4">
+            <!-- Barra de búsqueda -->
+            <form action="" method="get" class="d-flex mb-4">
+                <input 
+                    type="text" 
+                    name="search" 
+                    class="form-control me-2" 
+                    placeholder="Buscar por nombre, apellido o DNI..." 
+                    value="<?php echo htmlspecialchars($search); ?>">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
         <?php
+
+        
         while($row = pg_fetch_assoc($result)){
         ?>
         <div class="card">
             <p><?php echo $row['dni']; ?></p>
+            <p><?php echo $row['firstname']; ?></p>
+            <p><?php echo $row['secondname']; ?></p>
+            <p><?php echo $row['date_of_birth']; ?></p>
+            <p><?php echo $row['adress']; ?></p>
+            <p><?php echo $row['phone']; ?></p>
+            <p><?php echo $row['os']; ?></p>
+            <!-- Botón para mover a ficha médica -->
+            <form action="includes/move_to_ficha.php" method="post" class="mt-2">
+                <input type="hidden" name="dni" value="<?php echo $row['dni']; ?>">
+                <button type="submit" name="move_to_ficha" class="btn btn-success">Pasar a Ficha Médica</button>
+            </form>
         </div>
         <?php } ?>
     </body>
