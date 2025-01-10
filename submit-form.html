@@ -13,16 +13,22 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </head>
     <body>
-    <form action="includes/formhandler.php" method="post" class="user-form" enctype=“multipart/form-data”> 
-        <input id="DNI" type="number" name="DNI" placeholder="DNI..." required>
-        <input id="firstname" type="text" name="firstname" placeholder="Nombre..." required>
-        <input id="secondname" type="text" name="secondname" placeholder="Apellido..." required>
-        <input id="adress" type="text" name="adress" placeholder="Direccion..." required>
-        <input id="phone-number" type="tel" name="phone-number" placeholder="Numero de telefono..." required>
-        <input id="os" type="text" name="os" placeholder="Obra Social..." required>
-        <button type="submit">Enviar</button>
-
-    </form> 
+        <form action="includes/formhandler.php" method="post" class="user-form" enctype="multipart/form-data"> 
+            <input id="DNI" type="number" name="DNI" placeholder="DNI..." required>
+            <input id="firstname" type="text" name="firstname" placeholder="Nombre..." required>
+            <input id="secondname" type="text" name="secondname" placeholder="Apellido..." required>
+            <input id="adress" type="text" name="adress" placeholder="Direccion..." required>
+            <input id="phone-number" type="tel" name="phone-number" placeholder="Numero de telefono..." required>
+            <input id="os" type="text" name="os" placeholder="Obra Social..." required>
+           
+            <label for="derMed">Derivación Médica: </label>
+            <input id="derMed" type="file" name="derMed" accept="image/*" required>
+           
+            <label for="autObS">Autorización Obra Social: </label>
+            <input id="autObS" type="file" name="autObS" accept="image/*">
+            
+            <button type="submit">Enviar</button>
+        </form> 
         
     </body>
 </html>
