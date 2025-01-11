@@ -31,7 +31,7 @@ if (isset($_POST['login'])) {
             // Iniciar sesión
             $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $username;
-            header("Location: ../dashboard.php");
+            header("Location: ../dashboard_personal_info.php");
             exit;
         } else {
             echo "Contraseña incorrecta!";

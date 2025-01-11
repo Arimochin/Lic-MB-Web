@@ -29,6 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Redirigir para evitar reenvío de formulario
-    header("Location: ../dashboard.php");
+    header("Location: ../dashboard_personal_info.php");
     exit;
 }
