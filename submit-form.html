@@ -12,24 +12,67 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </head>
-    <body>
-        <form action="includes/formhandler.php" method="post" class="user-form" enctype="multipart/form-data"> 
-            <input id="DNI" type="number" name="DNI" placeholder="DNI..." required>
-            <input id="firstname" type="text" name="firstname" placeholder="Nombre..." required>
-            <input id="secondname" type="text" name="secondname" placeholder="Apellido..." required>
-            <input id="dateofbirth" type="date" name="dateofbirth" placeholder="Fecha de nacimiento..." required>
-            <input id="adress" type="text" name="adress" placeholder="Direccion..." required>
-            <input id="phone-number" type="tel" name="phone-number" placeholder="Numero de telefono..." required>
-            <input id="os" type="text" name="os" placeholder="Obra Social..." required>
-           
-            <label for="derMed">Derivación Médica: </label>
-            <input id="derMed" type="file" name="derMed" accept="image/*" required>
-           
-            <label for="autObS">Autorización Obra Social: </label>
-            <input id="autObS" type="file" name="autObS" accept="image/*">
-            
-            <button type="submit">Enviar</button>
-        </form> 
+    <body class="bg-light d-flex justify-content-center align-items-center vh-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8 col-sm-10">
+                    <form action="includes/formhandler.php" method="post" class="form-wrapper p-4 rounded shadow" enctype="multipart/form-data">
+                        <h2 class="mb-4 text-center form-title">Formulario</h2>
+                        
+                        <div class="mb-3">
+                            <label for="DNI" class="form-label">DNI</label>
+                            <input id="DNI" type="number" name="DNI" class="form-control" placeholder="DNI..." required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="firstname" class="form-label">Nombre</label>
+                            <input id="firstname" type="text" name="firstname" class="form-control" placeholder="Nombre..." required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="secondname" class="form-label">Apellido</label>
+                            <input id="secondname" type="text" name="secondname" class="form-control" placeholder="Apellido..." required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="dateofbirth" class="form-label">Fecha de nacimiento</label>
+                            <input id="dateofbirth" type="date" name="dateofbirth" class="form-control" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="adress" class="form-label">Dirección</label>
+                            <input id="adress" type="text" name="adress" class="form-control" placeholder="Dirección..." required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="phone-number" class="form-label">Número de Teléfono</label>
+                            <input id="phone-number" type="tel" name="phone-number" class="form-control" placeholder="Número de teléfono..." required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="os" class="form-label">Obra Social</label>
+                            <input id="os" type="text" name="os" class="form-control" placeholder="Obra Social..." required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="derMed" class="form-label">Derivación Médica</label>
+                            <input id="derMed" type="file" name="derMed" class="form-control" accept="image/*" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="autObS" class="form-label">Autorización Obra Social</label>
+                            <input id="autObS" type="file" name="autObS" class="form-control" accept="image/*">
+                        </div>
+                        
+                        <div class="d-grid">
+                            <button type="submit" class="btn-primary form-btn">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         
+        <!-- Bootstrap JS (optional for interactivity) -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>

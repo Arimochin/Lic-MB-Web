@@ -400,6 +400,126 @@ li::marker {
 
 }
 
+/* Login */
+
+.login-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-wrapper{
+  background: #d3d8d9;
+}
+
+.login-label{
+  color: #006D77;
+  font-weight: bold;
+  text-shadow: none;
+}
+
+.login-btn{
+  background: #ad6200;
+  color: #cbd1d3;
+  border-radius: 3px;
+  border: none;
+  padding: 1vh 1vw;
+  font-weight: bold;
+  margin-top: 2vh;
+}
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1vh;
+  text-shadow: none;
+}
+
+.login-input{
+  width: 15vw;
+  border-radius: 4px;
+  border: none;
+}
+
+.login-logo{
+  width: 25vw; /* Escala en relación al ancho de la pantalla */
+  max-width: 400px; /* Limita el tamaño en pantallas grandes */
+  max-height: 250px;
+  height: 10vh; /* Mantiene la proporción */
+  margin: 10vh 0 4vh 1vw;
+}
+
+/* Submit form */
+
+.form-wrapper{
+  background: #cbd1d3;
+}
+
+.form-btn{
+  background: #ad6200;
+  border: none;
+  color: #EDF6F9;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.form-title{
+  color: #006D77;
+}
+
+.form-label{
+  color: #75aba5;
+  text-shadow: 0px 0px 1px #004950;
+}
+
+/* Common personal medical */
+
+.move-btn{
+  background: #ad6200;
+  color: #EDF6F9;
+  border: none;
+  border-radius: 2px;
+}
+
+.img-btn{
+  color: #6dada5;
+  border: 1px solid #6dada5;
+  border-radius: 2px;
+}
+
+.info-card{
+  background: #d3d6d8;
+}
+
+.person-name{
+  color: #004950;
+}
+
+.search-btn{
+  background: #006D77;
+  color: #d7dbdd;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+
+.heading{
+  border: none;
+  border-radius: 3px;
+  padding: 7px 15px;
+  background: #ad6200;
+  color: #d3d8d9;
+  text-decoration: none;
+}
+
+input[type="text"], search-input{
+  background: #d7dcde;
+}
+
+
 /* Media Queries */
 @media (max-width: 768px) {
   header { 
