@@ -46,13 +46,14 @@ $result = pg_query($conn,$query);
                 while($row = pg_fetch_assoc($result)){
                 ?>
                 <div class="card">
-                    <p><?php echo $row['dni']; ?></p>
-                    <p><?php echo $row['firstname']; ?></p>
-                    <p><?php echo $row['secondname']; ?></p>
-                    <p><?php echo $row['date_of_birth']; ?></p>
-                    <p><?php echo $row['adress']; ?></p>
-                    <p><?php echo $row['phone']; ?></p>
-                    <p><?php echo $row['os']; ?></p>
+                    <p>DNI: <?php echo $row['dni']; ?></p>
+                    <p>Nombre: <?php echo $row['firstname']; ?></p>
+                    <p>Apellido: <?php echo $row['secondname']; ?></p>
+                    <p>Fecha de Nacimiento: <?php echo $row['date_of_birth']; ?></p>
+                    <p>Dirección: <?php echo $row['adress']; ?></p>
+                    <p>Teléfono: <?php echo $row['phone']; ?></p>
+                    <p>Obra Social: <?php echo $row['os']; ?></p>
+                    <p>Diagnóstico: </p>
                     <!-- Botón para mover a ficha médica -->
                     <form action="includes/move_to_ficha.php" method="post" class="mt-2">
                         <input type="hidden" name="dni" value="<?php echo $row['dni']; ?>">
