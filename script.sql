@@ -9,8 +9,8 @@ CREATE TABLE DATOS_PERSONALES (
     adress varchar(50) NOT NULL,
     phone numeric NOT NULL,
     os varchar(50) NOT NULL,
-    dev bytea,
-    autor bytea,
+    dev varchar(500),
+    autor varchar(500),
    PRIMARY KEY (DNI)
 );
 DROP TABLE IF EXISTS FICHA_MEDICA;
@@ -53,6 +53,7 @@ GRANT DELETE ON DATOS_PERSONALES TO terapista;
 GRANT INSERT ON FICHA_MEDICA TO terapista;
 GRANT SELECT ON FICHA_MEDICA TO terapista;
 GRANT DELETE ON FICHA_MEDICA TO terapista;
+GRANT UPDATE ON FICHA_MEDICA TO terapista;
 /*Extension para cifrado de passwords*/
 CREATE EXTENSION pgcrypto;
 /* Insertar usuarios en tabla */

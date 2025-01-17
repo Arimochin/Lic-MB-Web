@@ -515,8 +515,16 @@ li::marker {
   text-decoration: none;
 }
 
-input[type="text"], search-input{
+input[placeholder="Buscar por nombre, apellido o DNI..."], search-input{
   background: #d7dcde;
+}
+
+.edit-btn{
+  color: #d3d8d9;
+  background: #ad6200;
+  border: none;
+  border-radius: 4px;
+  padding: 7px 15px;
 }
 
 
