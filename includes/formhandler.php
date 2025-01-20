@@ -12,7 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $adress = filter_var($_POST['adress'], FILTER_UNSAFE_RAW);
     $phone_number = filter_var($_POST['phone-number'], FILTER_UNSAFE_RAW);
     $os = filter_var($_POST['os'], FILTER_UNSAFE_RAW);
-    
+    $schedule = $_POST['schedule'];
+
+
+    //Pasar disponibilidad horaria de array a string para la base
+    $scheduleString = implode(',', $schedule);
     // Codigo para las imagenes
     $filenameDerMed = $_FILES["derMed"]["name"];
     $tempnameDerMed = $_FILES["derMed"]["tmp_name"];
@@ -38,8 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Asegurarse de que la conexión esté activa
     if ($conn) {
         // Preparar la consulta de inserción
-        $query = "INSERT INTO DATOS_PERSONALES (dni, firstname, secondname, date_of_birth, adress, phone, os, dev, autor)
-                  VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)"; // Asegurarse de tener todos los 8 parámetros
+        $query = "INSERT INTO DATOS_PERSONALES (dni, firstname, secondname, date_of_birth, adress, phone, os, schedule, dev, autor)
+                  VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)"; // Asegurarse de tener todos los 8 parámetros
 
         // Ejecutar la consulta con parámetros
         $result = pg_query_params($conn, $query, [
@@ -50,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $adress,
             $phone_number,
             $os,
+            $scheduleString,
             $filenameDerMed,
             $filenameAutObS
         ]);

@@ -6,8 +6,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     // Mover datos a FICHA_MEDICA
-    $insert_query = "INSERT INTO FICHA_MEDICA (DNI, firstname, secondname, date_of_birth, adress, phone, os, dev, autor)
-                     SELECT DNI, firstname, secondname, date_of_birth, adress, phone, os, dev, autor
+    $insert_query = "INSERT INTO FICHA_MEDICA (DNI, firstname, secondname, date_of_birth, adress, phone, os, schedule, dev, autor)
+                     SELECT DNI, firstname, secondname, date_of_birth, adress, phone, os, schedule, dev, autor
                      FROM DATOS_PERSONALES
                      WHERE DNI = $1";
     $delete_query = "DELETE FROM DATOS_PERSONALES WHERE DNI = $1";

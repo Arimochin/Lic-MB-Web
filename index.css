@@ -527,6 +527,15 @@ input[placeholder="Buscar por nombre, apellido o DNI..."], search-input{
   padding: 7px 15px;
 }
 
+.schedule-btn{
+  border: none;
+  border-radius: 5px;
+  background: #004950;
+  color: #d7dbdd;
+  padding: 7px 14px
+
+}
+
 
 /* Media Queries */
 @media (max-width: 768px) {

@@ -20,14 +20,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_dni'])) {
     $address = $_POST['address'];
     $phone = $_POST['phone'];
     $os = $_POST['os'];
+    $schedule = $_POST['schedule'];
     $diagnosis = $_POST['diagnosis'];
     $treatment = $_POST['treatment'];
     $surgery_date = !empty($_POST['surgery_date']) ? $_POST['surgery_date'] : null; // Manejo de fechas nulas
     $discharge_date = !empty($_POST['discharge_date']) ? $_POST['discharge_date'] : null; // Manejo de fechas nulas
 
-    $update_query = "UPDATE FICHA_MEDICA SET firstname = $1, secondname = $2, adress = $3, phone = $4, os = $5,
-                        diagnosis = $6, treatment = $7, surgery_date = $8, discharge_date = $9 WHERE dni = $10";
-    $update_result = pg_query_params($conn, $update_query, array($firstname, $secondname, $address, $phone, $os, $diagnosis, $treatment, $surgery_date, $discharge_date, $dni));
+    $update_query = "UPDATE FICHA_MEDICA SET firstname = $1, secondname = $2, adress = $3, phone = $4, os = $5, schedule = $6,
+                        diagnosis = $7, treatment = $8, surgery_date = $9, discharge_date = $10 WHERE dni = $11";
+    $update_result = pg_query_params($conn, $update_query, array($firstname, $secondname, $address, $phone, $os, $schedule, $diagnosis, $treatment, $surgery_date, $discharge_date, $dni));
 
     if ($update_result) {
         header("Location: " . $_SERVER['PHP_SELF'] . "?success=1");
@@ -90,6 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_dni'])) {
                                     <p class="card-text"><strong>Dirección: </strong><?php echo $row['adress']; ?></p>
                                     <p class="card-text"><strong>Teléfono: </strong><?php echo $row['phone']; ?></p>
                                     <p class="card-text"><strong>Obra Social: </strong><?php echo $row['os']; ?></p>
+                                    <p class="card-text"><strong>Disponibilidad Horaria: </strong><?php echo $row['schedule']; ?></p>
                                     <p class="card-text"><strong>Diagnóstico: </strong><?php echo $row['diagnosis']; ?></p>
                                     <p class="card-text"><strong>Tratamiento: </strong><?php echo $row['treatment']; ?></p>
                                     <p class="card-text"><strong>Fecha de Cirugía: </strong><?php echo $row['surgery_date']; ?></p>
@@ -147,6 +149,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_dni'])) {
                                     <div class="mb-2">
                                         <label>Obra Social</label>
                                         <input type="text" name="os" class="form-control" value="<?php echo $row['os']; ?>" required>
+                                    </div>
+                                    <div class="mb-2">
+                                        <label>Disponibilidad Horaria</label>
+                                        <input type="text" name="schedule" class="form-control" value="<?php echo $row['schedule']; ?>" required>
                                     </div>
                                     <div class="mb-2">
                                         <label>Diagnóstico</label>

@@ -53,6 +53,7 @@ $result = pg_query($conn, $query);
                             <p class="card-text"><strong>Dirección:</strong> <?php echo $row['adress']; ?></p>
                             <p class="card-text"><strong>Teléfono:</strong> <?php echo $row['phone']; ?></p>
                             <p class="card-text"><strong>Obra Social:</strong> <?php echo $row['os']; ?></p>
+                            <p class="card-text"><strong>Disponibilidad Horaria:</strong> <?php echo $row['schedule']; ?></p>
 
                             <!-- Botones de modales -->
                             <button type="button" class="img-btn" data-bs-toggle="modal" data-bs-target="#derMedModal-<?php echo $row['dni']; ?>">Derivación Médica</button>
