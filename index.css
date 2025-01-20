@@ -476,6 +476,16 @@ li::marker {
 }
 
 /* Common personal medical */
+.fa-trash-o {
+  color: #d7dcde;
+  padding: 0;
+}
+
+.trash-btn{
+  background: #c20d0d;
+  border: none;
+  border-radius: 5px;
+}
 
 .move-btn{
   background: #ad6200;

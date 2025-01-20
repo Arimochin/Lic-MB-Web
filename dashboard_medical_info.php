@@ -174,6 +174,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_dni'])) {
                                     <button type="button" class="btn btn-secondary" onclick="toggleEdit(<?php echo $row['dni']; ?>)">Cancelar</button>
                                 </div>
                             </form>
+                            <!-- Boton modal eliminar -->
+                            <button type="button" class="btn btn-sm btn-danger float-end" data-bs-toggle="modal" data-bs-target="#confirm"><i class="fa fa-trash-o fa-lg">  </i></button>
+                            <!-- Modal Eliminar -->
+                            <div class="modal modal-sm fade" id="confirm"  tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">¿Estas seguro que deseas eliminar la informacion?</h5>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <form action="includes/delete_medical.php" method="post" class="mt-3">
+                                                <input type="hidden" name="dni" value="<?php echo $row['dni']; ?>">
+                                                <button type="submit" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#confirm">Eliminar</button>
+                                        </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

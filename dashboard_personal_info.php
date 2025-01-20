@@ -22,6 +22,7 @@ $result = pg_query($conn, $query);
     <link rel="stylesheet" href="index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="bg-light">
     <div class="container py-4">
@@ -80,12 +81,30 @@ $result = pg_query($conn, $query);
                                     </div>
                                 </div>
                             </div>
+                                <!-- Botón para ficha médica -->
+                                <form action="includes/move_to_ficha.php" method="post" class="mt-3">
+                                    <input type="hidden" name="dni" value="<?php echo $row['dni']; ?>">
+                                    <button type="submit" name="move_to_ficha" class="btn-sm move-btn">Pasar a Ficha Médica</button>
+                                </form>
+                            <!-- Boton modal eliminar -->
+                            <button type="button" class="btn btn-sm btn-danger float-end" data-bs-toggle="modal" data-bs-target="#confirm"><i class="fa fa-trash-o fa-lg">  </i></button>
+                            <!-- Modal Eliminar -->
+                            <div class="modal modal-sm fade" id="confirm"  tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">¿Estas seguro que deseas eliminar la informacion?</h5>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <form action="includes/delete_personal.php" method="post" class="mt-3">
+                                                <input type="hidden" name="dni" value="<?php echo $row['dni']; ?>">
+                                                <button type="submit" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#confirm">Eliminar</button>
+                                        </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                            <!-- Botón para ficha médica -->
-                            <form action="includes/move_to_ficha.php" method="post" class="mt-3">
-                                <input type="hidden" name="dni" value="<?php echo $row['dni']; ?>">
-                                <button type="submit" name="move_to_ficha" class="btn-sm move-btn">Pasar a Ficha Médica</button>
-                            </form>
                         </div>
                     </div>
                 </div>
