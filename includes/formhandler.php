@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Imagen Autorizacion Obra Social
     $filenameAutObS = $_FILES["autObS"]["name"];
     $tempnameAutObS = $_FILES["autObS"]["tmp_name"];
-    $folderAutObS = __DIR__ . "/../autObS-images/". $filenameAutObS;
+    $folderAutObS = __DIR__ . "/../autObS-images/";
 
     if (!is_dir($folderAutObS)) {
         mkdir($folderAutObS, 0777, true);

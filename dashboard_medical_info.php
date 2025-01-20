@@ -194,6 +194,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_dni'])) {
                                         <div class="modal-footer">
                                         <form action="includes/delete_medical.php" method="post" class="mt-3">
                                                 <input type="hidden" name="dni" value="<?php echo $row['dni']; ?>">
+                                                <input type="hidden" name="autor" value="<?php echo $row['autor']; ?>">
+                                                <input type="hidden" name="dev" value="<?php echo $row['dev']; ?>">
                                                 <button type="submit" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#confirm">Eliminar</button>
                                         </form>
                                         </div>

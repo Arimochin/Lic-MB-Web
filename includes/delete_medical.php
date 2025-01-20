@@ -4,6 +4,32 @@ require_once 'dbh.inc.terap.php';
 // Procesar la acción de mover a ficha médica
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $dni = $_POST['dni'];
+    $autor = $_POST['autor'];
+    $dev = $_POST['dev'];
+
+    // Eliminar imagen de derivacion
+    $imagePath = __DIR__ . "/../derMed-images/" . $dev; // Ruta completa del archivo
+    if (file_exists($imagePath)) {
+        if (unlink($imagePath)) {
+            echo "Imagen eliminada correctamente.";
+        } else {
+            echo "Error al intentar eliminar la imagen.";
+        }
+    } else {
+        echo "La imagen no existe.";
+    }
+
+    // Eliminar imagen de derivacion
+    $imagePath = __DIR__ . "/../autObS-images/" . $autor; // Ruta completa del archivo
+    if (file_exists($imagePath)) {
+        if (unlink($imagePath)) {
+            echo "Imagen eliminada correctamente.";
+        } else {
+            echo "Error al intentar eliminar la imagen.";
+        }
+    } else {
+        echo "La imagen no existe.";
+    }
 
     // Mover datos a FICHA_MEDICA
     $delete_query = "DELETE FROM FICHA_MEDICA WHERE DNI = $1";
