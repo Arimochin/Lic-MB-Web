@@ -1,6 +1,6 @@
 <?php
 require_once 'includes/dbh.inc.terap.php';
-$query = "SELECT * FROM FICHA_MEDICA";
+$query = "SELECT *, extract(years from AGE(date_of_birth)) as age FROM FICHA_MEDICA";
 // Inicializar variables
 $search = '';
 // Procesar búsqueda si se envía el formulario
@@ -10,6 +10,7 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
                 OR LOWER(secondname) LIKE LOWER('%$search%') 
                 OR CAST(dni AS TEXT) LIKE '%$search%'";
 }
+
 $result = pg_query($conn,$query);
 
 // Procesar actualización de datos
@@ -22,13 +23,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_dni'])) {
     $os = $_POST['os'];
     $schedule = $_POST['schedule'];
     $diagnosis = $_POST['diagnosis'];
-    $treatment = $_POST['treatment'];
+    $evaluation = $_POST['evaluation'];
     $surgery_date = !empty($_POST['surgery_date']) ? $_POST['surgery_date'] : null; // Manejo de fechas nulas
     $discharge_date = !empty($_POST['discharge_date']) ? $_POST['discharge_date'] : null; // Manejo de fechas nulas
+    $observations = $_POST['observations'];
 
     $update_query = "UPDATE FICHA_MEDICA SET firstname = $1, secondname = $2, adress = $3, phone = $4, os = $5, schedule = $6,
-                        diagnosis = $7, treatment = $8, surgery_date = $9, discharge_date = $10 WHERE dni = $11";
-    $update_result = pg_query_params($conn, $update_query, array($firstname, $secondname, $address, $phone, $os, $schedule, $diagnosis, $treatment, $surgery_date, $discharge_date, $dni));
+                        diagnosis = $7, evaluation = $8, surgery_date = $9, discharge_date = $10, observations = $11 WHERE dni = $12";
+    $update_result = pg_query_params($conn, $update_query, array($firstname, $secondname, $address, $phone, $os, $schedule, $diagnosis, 
+                                        $evaluation, $surgery_date, $discharge_date, $observations, $dni));
 
     if ($update_result) {
         header("Location: " . $_SERVER['PHP_SELF'] . "?success=1");
@@ -87,15 +90,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_dni'])) {
                                     <p class="card-text"><strong>DNI: </strong><?php echo $row['dni']; ?></p>
                                     <!-- <p class="card-text"><strong>Nombre: </strong><?php echo $row['firstname']; ?></p>
                                     <p class="card-text"><strong>Apellido: </strong> <?php echo $row['secondname']; ?></p> -->
-                                    <p class="card-text"><strong>Fecha de Nacimiento: </strong> <?php echo $row['date_of_birth']; ?></p>
+                                    <p class="card-text"><strong>Edad: </strong> <?php echo $row['age']; ?></p>
                                     <p class="card-text"><strong>Dirección: </strong><?php echo $row['adress']; ?></p>
                                     <p class="card-text"><strong>Teléfono: </strong><?php echo $row['phone']; ?></p>
                                     <p class="card-text"><strong>Obra Social: </strong><?php echo $row['os']; ?></p>
                                     <p class="card-text"><strong>Disponibilidad Horaria: </strong><?php echo $row['schedule']; ?></p>
                                     <p class="card-text"><strong>Diagnóstico: </strong><?php echo $row['diagnosis']; ?></p>
-                                    <p class="card-text"><strong>Tratamiento: </strong><?php echo $row['treatment']; ?></p>
+                                    <p class="card-text"><strong>Evaluación: </strong><?php echo $row['evaluation']; ?></p>
                                     <p class="card-text"><strong>Fecha de Cirugía: </strong><?php echo $row['surgery_date']; ?></p>
                                     <p class="card-text"><strong>Fecha de Alta: </strong><?php echo $row['discharge_date']; ?></p>
+                                    <p class="card-text"><strong>Observaciones: </strong><?php echo $row['observations']; ?></p>
 
                                     <!-- Botones de modales -->
                                     <button type="button" class="img-btn" data-bs-toggle="modal" data-bs-target="#derMedModal-<?php echo $row['dni']; ?>">Derivación Médica</button>
@@ -160,7 +164,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_dni'])) {
                                     </div>
                                     <div class="mb-2">
                                         <label>Tratamiento</label>
-                                        <input type="text" name="treatment" class="form-control" value="<?php echo $row['treatment']; ?>" >
+                                        <input type="text" name="evaluation" class="form-control" value="<?php echo $row['evaluation']; ?>" >
                                     </div>
                                     <div class="mb-2">
                                         <label>Fecha de Cirugía</label>
@@ -169,6 +173,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_dni'])) {
                                     <div class="mb-2">
                                         <label>Fecha de Alta</label>
                                         <input type="date" name="discharge_date" class="form-control" value="<?php echo $row['discharge_date']; ?>" >
+                                    </div>
+                                    <div class="mb-2">
+                                        <label>Observaciones</label>
+                                        <textarea name="observations" class="form-control" rows="5" placeholder="Escribe tus observaciones aquí..."><?php echo htmlspecialchars($row['observations']); ?></textarea>
                                     </div>
                                     <button type="submit" class="btn btn-success">Guardar</button>
                                     <button type="button" class="btn btn-secondary" onclick="toggleEdit(<?php echo $row['dni']; ?>)">Cancelar</button>
