@@ -17,21 +17,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     //Pasar disponibilidad horaria de array a string para la base
     $scheduleString = implode(',', $schedule);
-    // Codigo para las imagenes
+   
+    /*---- Codigo para las imagenes ----*/
+
+    // Imagen Derivacion Medica
     $filenameDerMed = $_FILES["derMed"]["name"];
     $tempnameDerMed = $_FILES["derMed"]["tmp_name"];
-    $folderDerMed = __DIR__ . "/../derMed-images/". $filenameDerMed;
+    $folderDerMed = __DIR__ . "/../derMed-images/";
 
+    if (!is_dir($folderDerMed)) {
+        mkdir($folderDerMed, 0777, true);
+    }
+    $folderDerMed .= $filenameDerMed;
     if (move_uploaded_file($tempnameDerMed, $folderDerMed)){
         echo "<h3>&nbsp; Imagen subida correctamente!</h3>";
     } else {
         echo "<h3>&nbsp; Falló en subirse la imagen!</h3>";
     }
 
+    // Imagen Autorizacion Obra Social
     $filenameAutObS = $_FILES["autObS"]["name"];
     $tempnameAutObS = $_FILES["autObS"]["tmp_name"];
     $folderAutObS = __DIR__ . "/../autObS-images/". $filenameAutObS;
 
+    if (!is_dir($folderAutObS)) {
+        mkdir($folderAutObS, 0777, true);
+    }
+    $folderAutObS .= $filenameAutObS;
     if (move_uploaded_file($tempnameAutObS, $folderAutObS)){
         echo "<h3>&nbsp; Imagen subida correctamente!</h3>";
     } else {

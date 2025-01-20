@@ -1,6 +1,6 @@
 <?php
 require_once 'includes/dbh.inc.terap.php';
-$query = "SELECT * FROM DATOS_PERSONALES";
+$query = "SELECT *, extract(years from AGE(date_of_birth)) as age FROM DATOS_PERSONALES";
 // Inicializar variables
 $search = '';
 // Procesar búsqueda si se envía el formulario
@@ -49,7 +49,7 @@ $result = pg_query($conn, $query);
                         <div class="info-card card-body">
                             <h5 class="person-name"><?php echo $row['firstname'] . ' ' . $row['secondname']; ?></h5>
                             <p class="card-text"><strong>DNI:</strong> <?php echo $row['dni']; ?></p>
-                            <p class="card-text"><strong>Fecha de Nacimiento:</strong> <?php echo $row['date_of_birth']; ?></p>
+                            <p class="card-text"><strong>Edad:</strong> <?php echo $row['age']; ?></p>
                             <p class="card-text"><strong>Dirección:</strong> <?php echo $row['adress']; ?></p>
                             <p class="card-text"><strong>Teléfono:</strong> <?php echo $row['phone']; ?></p>
                             <p class="card-text"><strong>Obra Social:</strong> <?php echo $row['os']; ?></p>
