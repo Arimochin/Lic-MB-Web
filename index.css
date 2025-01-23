@@ -343,29 +343,15 @@ li::marker {
 }
 
 .terap-body{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   margin-top: 35vh;
-  margin-bottom: 5vh;
 }
 
-.section{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 10vw;
-  margin-bottom: 10vh;
-}
 
 .section-title{
   color: #75aba5;
 }
 
 .section-text{
-  width: 30vw;
   color: #575652;
   background: #d3d8d9;
   padding: 20px;
@@ -373,10 +359,10 @@ li::marker {
 }
 
 .section-img{
-  max-width: 50vw;
-  max-height: 35vh;
   box-shadow: 4px 4px 20px black;
   transition: 0.5s;
+}.section-video{
+  border: 2px solid #6dada5;
 }
 
 .section-img:hover{
@@ -544,6 +530,15 @@ input[placeholder="Buscar por nombre, apellido o DNI..."], search-input{
   color: #d7dbdd;
   padding: 7px 14px
 
+}
+
+.img-upload-btn {
+  border: none !important;
+  border-radius: 4px;
+  padding: 2px 5px;
+  margin-left: 4px;
+  background: #004950 !important; 
+  color: #d7dbdd !important;
 }
 
 

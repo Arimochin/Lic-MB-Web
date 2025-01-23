@@ -1,4 +1,17 @@
 <?php
+
+function getPatientImages($conn, $dni) {
+    $query = "SELECT src FROM PATIENT_IMAGES WHERE DNI = $1";
+    $result = pg_query_params($conn, $query, array($dni));
+
+    if (!$result) {
+        echo "Error en la consulta: " . pg_last_error($conn);
+        return [];
+    }
+
+    return pg_fetch_all($result); // Asegúrate de que esto devuelva todas las filas
+}
+
 require_once 'includes/dbh.inc.terap.php';
 $query = "SELECT *, extract(years from AGE(date_of_birth)) as age FROM FICHA_MEDICA";
 // Inicializar variables
@@ -115,7 +128,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_dni'])) {
                                             </div>
                                         </div>
                                     </div>
-
                                     <!-- Modal Autorización Obra Social -->
                                     <div class="modal fade" id="autObSModal-<?php echo $row['dni']; ?>" tabindex="-1" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -126,8 +138,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_dni'])) {
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="d-flex flex-row">
+                                        <button type="button" class="edit-btn mt-3" onclick="toggleEdit(<?php echo $row['dni']; ?>)">Editar</button>
+                                        <!-- Boton modal cargar -->
+                                        <button 
+                                            type="button" 
+                                            class="btn btn-2xs btn-primary mt-2 img-upload-btn" 
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#addImageModal-<?php echo $row['dni']; ?>">
+                                            <i class="fa fa-upload fa-sm p-0"></i>
+                                        </button>
+                                    </div>
+                                    <!-- Botón para abrir la galería -->
+                                    <button type="button" class="img-btn mt-3" data-bs-toggle="modal" data-bs-target="#galleryModal-<?php echo $row['dni']; ?>">
+                                        Ver Galería
+                                    </button>
 
-                                    <button type="button" class="edit-btn mt-3" onclick="toggleEdit(<?php echo $row['dni']; ?>)">Editar</button>
+                                    <!-- Modal para la galería de imágenes -->
+                                    <div class="modal fade" id="galleryModal-<?php echo $row['dni']; ?>" tabindex="-1" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Galería de Imágenes - <?php echo $row['firstname'] . ' ' . $row['secondname']; ?></h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <?php
+                                                        $images = getPatientImages($conn, $row['dni']);
+                                                        if ($images) {
+                                                            foreach ($images as $image) {
+                                                                echo '
+                                                                    <div class="col-md-4 mb-3">
+                                                                        <a target="_blank" href="patient-images/' . htmlspecialchars($image['src'], ENT_QUOTES, 'UTF-8') . '">
+                                                                            <img src="patient-images/' . htmlspecialchars($image['src'], ENT_QUOTES, 'UTF-8') . '" class="img-fluid rounded">
+                                                                        </a>
+                                                                        <div class="text-center mt-2">Add a description of the image here</div>
+                                                                    </div>';
+                                                            }
+                                                        } else {
+                                                            echo '<p class="text-center">No hay imágenes disponibles.</p>';
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
 
@@ -202,6 +259,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_dni'])) {
                                     </div>
                                 </div>
                             </div>
+                            <!-- Modal carga de imagenes-->
+                            <div class="modal fade" id="addImageModal-<?php echo $row['dni']; ?>" tabindex="-1" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Agregar Imagen para <?php echo $row['firstname'] . ' ' . $row['secondname']; ?></h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                                </div>
+                                                <form action="includes/upload_image.php" method="post" enctype="multipart/form-data">
+                                                    <div class="modal-body">
+                                                        <input type="hidden" name="dni" value="<?php echo $row['dni']; ?>">
+                                                        <div class="mb-3">
+                                                            <label for="image" class="form-label">Seleccionar Imagen</label>
+                                                            <input type="file" name="image" class="form-control" accept="image/*" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary">Subir Imagen</button>
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                    </div>
+                                                    
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                         </div>
                     </div>
                 </div>
