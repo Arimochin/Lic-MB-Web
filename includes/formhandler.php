@@ -73,9 +73,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Comprobar el resultado
         if ($result) {
-            echo "Datos enviados correctamente.";
+            header("Location: ../success.html");
         } else {
-            echo "Error al insertar datos: " . pg_last_error($conn);
+            echo "Error al insertar datos: ";
         }
     } else {
         echo "Error de conexión a la base de datos.";

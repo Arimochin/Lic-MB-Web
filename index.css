@@ -541,6 +541,23 @@ input[placeholder="Buscar por nombre, apellido o DNI..."], search-input{
   color: #d7dbdd !important;
 }
 
+.success-container{
+  background: #d7dcde;
+  border-radius: 50%;
+}
+
+.check-icon{
+  color: #004950;
+  font-size: 12rem !important;
+}
+
+.success-text{
+  color: #004950;
+  font-weight: bold;
+}
+
+
+
 
 /* Media Queries */
 @media (max-width: 768px) {
