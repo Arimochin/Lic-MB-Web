@@ -575,6 +575,11 @@ input[placeholder="Buscar por nombre, apellido o DNI..."], search-input{
       /* max-width: 200px; */
   }
 
+  .logo-offcanvas {
+      width: 60vw;
+      max-width: 60%;
+  }
+
   .fa {
       font-size: 1.2rem;
   }
@@ -595,7 +600,7 @@ input[placeholder="Buscar por nombre, apellido o DNI..."], search-input{
 
   .enter-btn {
     display: block;
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin:  1em 0 1em 0;
     font-weight: 700;
     width: 50%;
