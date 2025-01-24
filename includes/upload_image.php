@@ -1,8 +1,6 @@
 <?php
 // Incluir el archivo de conexión para el usuario `patient`
 require_once 'dbh.inc.terap.php';
-echo "hola";
-
 // Validar que los datos hayan sido enviados
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sanitizar y asignar variables a los datos del formulario
@@ -39,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $result_insert = pg_query_params($conn, $insert_query, [$dni, $next_img, $filenameimg]);
             // Comprobar el resultado
             if ($result_insert) {
-                echo "Datos enviados correctamente.";
+                header("Location: ../dashboard_medical_info.php");
             } else {
                 echo "Error al insertar datos: " . pg_last_error($conn);
             }
